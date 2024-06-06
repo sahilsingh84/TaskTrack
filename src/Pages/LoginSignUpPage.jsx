@@ -32,12 +32,14 @@ const LoginSignUpPage = ({ auth }) => {
       const loginRes=await signInWithEmailAndPass(formData.email,formData.password);
     } else {
         const result=await signupwithEmailAndPassword(formData.email,formData.password);
-    }
+      }
+    navigate("/")
   };
 
   const authwithGoogle = async () => {
         const googleauth=await signinWithGoogle();
   }
+  console.log(isLoggedIn);
 
   return (
    <div className='loginPage contentPart'>
