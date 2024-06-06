@@ -1,38 +1,526 @@
-.App {
-  text-align: center;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  scroll-behavior: smooth;
+  font-family: Arial, sans-serif;
+}
+/* HTML: <div class="loader"></div> */
+.loader {
+  width: 40px;
+  height: 20px;
+  --c:no-repeat radial-gradient(farthest-side,#000 93%,#0000);
+  background:
+    var(--c) 0    0,
+    var(--c) 50%  0,
+    var(--c) 100% 0;
+  background-size: 8px 8px;
+  position: relative;
+  animation: l4-0 1s linear infinite alternate;
+}
+.loader:before {
+  content: "";
+  position: absolute;
+  width: 8px;
+  height: 12px;
+  background: #000;
+  left: 0;
+  top: 0;
+  animation: 
+    l4-1 1s  linear infinite alternate,
+    l4-2 0.5s cubic-bezier(0,200,.8,200) infinite;
+}
+@keyframes l4-0 {
+  0%      {background-position: 0  100%,50% 0   ,100% 0}
+  8%,42%  {background-position: 0  0   ,50% 0   ,100% 0}
+  50%     {background-position: 0  0   ,50% 100%,100% 0}
+  58%,92% {background-position: 0  0   ,50% 0   ,100% 0}
+  100%    {background-position: 0  0   ,50% 0   ,100% 100%}
+}
+@keyframes l4-1 {
+  100% {left:calc(100% - 8px)}
+}
+@keyframes l4-2 {
+  100% {top:-0.1px}
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.wrapper {
+  width: 100vw;
+  height: 100%;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.navbar {
+  width: 100%;
+  max-width: 1200px;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo {
+  width: 200px;
+  height: 100px;
+}
+
+.logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.contentPart {
+  width: 100%;
+  max-width: 1200px;
+  background-color: #4463fff6;
+  display: flex;
+  flex-wrap: wrap;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #333;
+  margin-top: 20px;
+  padding: 20px;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.leftPart {
+  flex: 1;
+  padding: 20px;
+}
+.Heading{
+  margin:10px 0px;
+  font-size: 36px;
+  min-height: 100px;
+  font-weight: 700;
+}
+.movingCharacter{
+  font-size: 28px;
+}
+.Paragraph{
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 28px;
+}
+.rightPart {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.rightPartImage {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+}
+
+.rightPartImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 30px;
+}
+
+.signup, .login {
+  padding: 10px 20px;
+  background-color: rgb(82, 247, 32);
+  color: white;
+  font-weight: 500;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.FormInput{
+  margin: 35px 0px;
+  display: flex;
+  flex-direction: column;
+  gap:10px;
+}
+.FormInput label{
+  font-size: 18px;
+  font-weight: 500;
+  margin-left: 10px;
+}
+.FormInput input{
+  width:70%;
+  text-decoration: none;
+  padding: 10px 15px;
+  border-radius: 25px;
+  border: none;
+}
+.withGoogle{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap:10px;
+}
+.signup img{
+  width:25px;
+  height: 25px;
+}
+
+.TaskPage{
+  width: 100%;
+  max-width: 1250px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #333;
+  margin-top: 20px;
+  padding: 20px;
+}
+.taskItem.completed div {
+  text-decoration: line-through;
+}
+.addTask{
+  width:70%;
+}
+.createTask{
+  background-color: #4463fff6;
+  color: white;
+  padding: 20px 10px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #333;
+  
+}
+.createTaskHeading{
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+.createTaskForm{
+  background-color: white;
+  color: black;
+  border-radius: 5px;
+  box-shadow:0 0 5px #333;
+  display: flex;
+  flex-direction: column;
+  padding: 10px 10px;
+  margin-bottom: 10px;
+  
+}
+.createTaskForm input{
+  width:100%;
+  margin-bottom:5px;
+  padding: 5px 10px;
+  border: none;
+
+}
+.createTaskForm .taskName{
+  font-weight: 600;
+}
+.addtaskButton{
+  margin: 0 0;
+}
+
+.analysisGraph{
+  width:300px;
+  height:300px;
+}
+.analysisGraph img{
+  width:100%;
+  height:100%;
+  object-fit: cover;
+  object-position: center;
+}
+.taskList {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-top: -15px;
+  border-radius: 10px;
+  background-color: white;
+  box-shadow: 0 0 10px #333;
+}
+.taskItem {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin: 5px 0;
+  width:97%;
+  justify-content: space-between;
+}
+.taskeItems{
+  display: flex;
+  justify-content: left;
+}
+.singleTaskItem{
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+}
+.wholeSingleTask {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  width:100%;
+
+}
+
+.singleTaskItem {
+  display: flex;
+  flex-direction: column;
+  margin-right: 100px;
+}
+
+.taskName {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+button {
+  margin-left: 10px;
+}
+
+.wholeSingleTask > div:last-child {
+  display: flex;
+  justify-content: flex-end;
+}
+.editAndDeleteButton{
+  float: right;
+}
+.editAndDeleteButton button{
+  width:20px;
+  height: 20px;
+  border: none;
+  background-color: white;
+  cursor: pointer;
+}
+.editAndDeleteButton button img{
+  width:100%;
+  height:100%;
+  object-position: center;
+  object-fit: cover;
+}
+
+
+
+
+.TaskPage {
+  width: 100%;
+  max-width: 1250px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #333;
+  margin-top: 20px;
+  padding: 20px;
+}
+
+.calendar {
+  flex: 1;
+  margin-right: 20px;
+}
+
+.addTask {
+  flex: 3;
+  display: flex;
+  flex-direction: column;
+}
+
+.createTask {
+  background-color: #4463fff6;
+  color: white;
+  padding: 20px 10px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #333;
+}
+
+.createTaskHeading {
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.createTaskForm {
+  background-color: white;
+  color: black;
+  border-radius: 5px;
+  box-shadow: 0 0 5px #333;
+  display: flex;
+  flex-direction: column;
+  padding: 10px 10px;
+  margin-bottom: 10px;
+}
+
+.createTaskForm input {
+  width: 100%;
+  margin-bottom: 5px;
+  padding: 5px 10px;
+  border: none;
+}
+
+.createTaskForm .taskName {
+  font-weight: 600;
+}
+
+.addtaskButton {
+  margin: 0 0;
+}
+
+.taskList {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-top: -15px;
+  border-radius: 10px;
+  background-color: white;
+  box-shadow: 0 0 10px #333;
+}
+
+.taskItem {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin: 5px 0;
+  width: 97%;
+  justify-content: space-between;
+}
+
+.taskItem.completed div {
+  text-decoration: line-through;
+}
+
+.taskeItems {
+  display: flex;
+  justify-content: left;
+  width: 100%;
+}
+
+.singleTaskItem {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+}
+
+.wholeSingleTask {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  width: 100%;
+}
+
+.singleTaskItem {
+  display: flex;
+  flex-direction: column;
+  margin-right: 100px;
+}
+
+.taskName {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+button {
+  margin-left: 10px;
+}
+
+.wholeSingleTask > div:last-child {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.editAndDeleteButton {
+  float: right;
+}
+
+.editAndDeleteButton button {
+  width: 20px;
+  height: 20px;
+  border: none;
+  background-color: white;
+  cursor: pointer;
+}
+
+.editAndDeleteButton button img {
+  width: 100%;
+  height: 100%;
+  object-position: center;
+  object-fit: cover;
+}
+
+.editTaskInput {
+  flex: 1;
+  padding: 8px;
+  margin: 5px;
+  font-size: 16px;
+}
+
+.saveButton {
+  margin-left: 10px;
+  padding: 5px 10px;
+  background-color: #28a745;
+}
+
+
+
+
+
+
+
+@media (max-width: 768px) {
+  .navbar {
+    justify-content: flex-start;
   }
-  to {
-    transform: rotate(360deg);
+
+  .contentPart {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .rightPart {
+    margin-top: 20px;
+  }
+
+  .rightPartImage {
+    width: 80%;
+    height: auto;
+  }
+
+  .leftPart {
+    padding: 20px;
   }
 }
+
+@media (max-width: 480px) {
+  .buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .signup, .login {
+    width: 100%;
+    text-align: center;
+  }
+}
+
