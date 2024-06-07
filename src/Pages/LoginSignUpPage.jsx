@@ -33,11 +33,12 @@ const LoginSignUpPage = ({ auth }) => {
     } else {
         const result=await signupwithEmailAndPassword(formData.email,formData.password);
       }
-    navigate("/")
+    navigate("/");
   };
 
   const authwithGoogle = async () => {
         const googleauth=await signinWithGoogle();
+        navigate("/");
   }
   console.log(isLoggedIn);
 

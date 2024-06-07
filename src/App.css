@@ -484,6 +484,258 @@ button {
 
 
 
+/* General styles */
+.TaskPage {
+  width: 100%;
+  max-width: 1250px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #333;
+  margin-top: 20px;
+  padding: 20px;
+}
+
+.calendar {
+  flex: 1;
+  margin-right: 20px;
+}
+
+.addTask {
+  flex: 3;
+  display: flex;
+  flex-direction: column;
+}
+
+.createTask {
+  background-color: #4463fff6;
+  color: white;
+  padding: 20px 10px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #333;
+}
+
+.createTaskHeading {
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.createTaskForm {
+  background-color: white;
+  color: black;
+  border-radius: 5px;
+  box-shadow: 0 0 5px #333;
+  display: flex;
+  flex-direction: column;
+  padding: 10px 10px;
+  margin-bottom: 10px;
+}
+
+.createTaskForm input {
+  width: 100%;
+  margin-bottom: 5px;
+  padding: 5px 10px;
+  border: none;
+}
+
+.createTaskForm .taskName {
+  font-weight: 600;
+}
+
+.addtaskButton {
+  margin: 0 0;
+}
+
+.taskList {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-top: -15px;
+  border-radius: 10px;
+  background-color: white;
+  box-shadow: 0 0 10px #333;
+}
+
+.taskItem {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin: 5px 0;
+  width: 97%;
+  justify-content: space-between;
+}
+
+.taskItem.completed div {
+  text-decoration: line-through;
+}
+
+.taskeItems {
+  display: flex;
+  justify-content: left;
+  width: 100%;
+}
+
+.singleTaskItem {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+}
+
+.wholeSingleTask {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  width: 100%;
+}
+
+.singleTaskItem {
+  display: flex;
+  flex-direction: column;
+  margin-right: 100px;
+}
+
+.taskName {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+button {
+  margin-left: 10px;
+}
+
+.wholeSingleTask > div:last-child {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.editAndDeleteButton {
+  float: right;
+}
+
+.editAndDeleteButton button {
+  width: 20px;
+  height: 20px;
+  border: none;
+  background-color: white;
+  cursor: pointer;
+}
+
+.editAndDeleteButton button img {
+  width: 100%;
+  height: 100%;
+  object-position: center;
+  object-fit: cover;
+}
+
+.editTaskInput {
+  flex: 1;
+  padding: 8px;
+  margin: 5px;
+  font-size: 16px;
+}
+
+.saveButton {
+  margin-left: 10px;
+  padding: 5px 10px;
+  background-color: #28a745;
+}
+
+/* Responsive styles */
+@media (max-width: 1024px) {
+  .TaskPage {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .calendar {
+    margin-right: 0;
+    margin-bottom: 20px;
+    width: 100%;
+  }
+
+  .addTask {
+    width: 100%;
+  }
+
+  .createTask {
+    padding: 20px;
+  }
+
+  .taskList {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    justify-content: flex-start;
+  }
+
+  .TaskPage {
+    padding: 10px;
+  }
+
+  .createTaskHeading {
+    font-size: 28px;
+  }
+
+  .createTaskForm {
+    padding: 10px;
+  }
+
+  .singleTaskItem {
+    margin-right: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .createTaskHeading {
+    font-size: 24px;
+  }
+
+  .createTaskForm input {
+    font-size: 14px;
+    padding: 5px;
+  }
+
+  .saveButton {
+    padding: 5px;
+    font-size: 14px;
+  }
+
+  .taskName {
+    font-size: 16px;
+  }
+
+  .editAndDeleteButton button {
+    width: 15px;
+    height: 15px;
+  }
+
+  .wholeSingleTask {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .wholeSingleTask > div:last-child {
+    width: 100%;
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+
+
 
 
 
